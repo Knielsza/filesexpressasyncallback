@@ -2,6 +2,9 @@ const express = require("express")
 const app = express()
 const PORT = 3000;
 
+
+form.uploadDir = __dirname + '/upload/'
+
 // const newDirPath = require("string_decoder")
 const fs = require("fs")
 const path = require("path")
@@ -16,6 +19,17 @@ fs.mkdir(newDirPath, (err) => {
     console.log("katalog powstał")
   }
 })
+
+if (!fs.existsSync(new_path)) {
+  fs.rename(old_path, new_path, (err) => {
+    if (err) console.log(err)
+    else {
+      res.redirect("")
+    }
+  })
+}
+else {
+}
 app.get('/', function (req, res) {
   res.render('index.hbs')
 })
